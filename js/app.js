@@ -8,6 +8,25 @@
   var bgSyncTextElement = document.querySelector('.bg-sync__text');
   var bgSyncElement = document.querySelector('.custom__button-bg');
 
+  function handleVisibilityChange() {
+    console.log('visibilityState ' + document.visibilityState);
+    console.log('wasDiscarded is ' + document.wasDiscarded);
+  }
+  document.addEventListener('visibilitychange', handleVisibilityChange);
+  
+  function handleResume(event) {
+    console.log('resumed');
+    console.log('wasDiscarded is ' + document.wasDiscarded);
+  }
+  document.addEventListener('resume', handleResume);
+
+  function handleFreeze(event) {
+    console.log('frozen');
+    console.log('wasDiscarded is ' + document.wasDiscarded);
+  }
+  document.addEventListener('freeze', handleFreeze);
+
+
   //Add github user data to the card
   function addGitUserCard() {
     var userInput = addCardInputElement.value;
